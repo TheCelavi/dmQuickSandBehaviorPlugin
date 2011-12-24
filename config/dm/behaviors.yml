@@ -1,0 +1,11 @@
+dmBehaviors:
+  dmQuickSandBehavior:
+    section: Media Gallery
+    name: QuickSand
+    form: dmQuickSandBehaviorForm
+    view: dmQuickSandBehaviorView
+  dmQuickSandMetadataBehavior:
+    section: Metadata
+    name: QuickSand Metadata
+    form: dmQuickSandMetadataBehaviorForm
+    view: dmQuickSandMetadataBehaviorView

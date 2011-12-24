@@ -1,0 +1,11 @@
+js:
+  dmQuickSandBehaviorPlugin:
+    transform:      jquery-css-transform
+    patch:          jquery-animate-css-rotate-scale
+    quickSand:      jquery.quicksand.modified
+    launchQuickSand: dmQuickSand
+    launchMetadata: dmQuickSandMetadata
+css:
+  dmQuickSandBehaviorPlugin:
+    themes: themes
+  

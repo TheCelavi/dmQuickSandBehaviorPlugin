@@ -1,0 +1,6 @@
+.dmQuickSandContainer > * {
+    float: left;
+}
+.dmQuickSandContainer.hidden {
+    display: none;
+}
