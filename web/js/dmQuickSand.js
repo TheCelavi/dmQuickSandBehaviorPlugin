@@ -13,10 +13,10 @@
             var $this = $(this), $navigaton = $('<div class="dmQuickNavigation"></div>');
             if ($this.is('ul')) {
                 // TODO? What if we are manipulating with ul?
-            }
+            };
             var $copy = $this.children().clone(true, true);
             $this.data('dmQuickSandBehaviorPreviousDOM', $this.children().detach());
-            $this.append($('<div class="dmQuickSandContainer"></div>').append($copy));
+            $this.append($('<div class="dmQuickSandContainer"></div>').addClass(behavior.theme).append($copy));
             var groups = {};
             $.each($copy, function(){
                 var $item = $(this);
@@ -24,8 +24,8 @@
                     var attrName = $item[0].attributes[i].nodeName;
                     if (/data-quicksandgroup-*/im.test(attrName)) {
                         groups[$item[0].attributes[i].nodeName] = $item[0].attributes[i].nodeValue;
-                    }
-                }
+                    };
+                };
             });            
             $this.prepend($navigaton);
             
@@ -45,7 +45,7 @@
                     return false;
                 });
                 $navigaton.append($link);
-            }
+            };
             if (behavior.all_items_label) {
                 var $all = $('<a href="#"></a>').html(behavior.all_items_label).click(function(){
                     $navigaton.find('a').removeClass('selected');
@@ -58,7 +58,7 @@
                     return false;
                 });
                 $navigaton.prepend($all);
-            }
+            };
             $navigaton.find('a:first').addClass('first').addClass('selected');
             $navigaton.find('a:last').addClass('last');
         },
@@ -82,7 +82,7 @@
                 return methods.init.apply( this, [method] );
             } else {
                 $.error( 'Method ' +  method + ' does not exist on jQuery.dmQuickSandMetadata' );
-            }  
+            };  
         });
     };
 

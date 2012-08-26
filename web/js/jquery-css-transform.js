@@ -15,12 +15,12 @@
             if (typeof element.style[p] != 'undefined')
             {
                 return p;
-            }
-        }
+            };
+        };
         
         // Default to transform also
         return 'transform';
-    }
+    };
     
     var _propsObj = null;
     
@@ -42,8 +42,8 @@
             else
             {
                 _propsObj = {}
-            }
-        }
+            };
+        };
         
         // Find the correct browser specific property and setup the mapping using
         // $.props which is used internally by jQuery.attr() when setting CSS
@@ -67,7 +67,7 @@
         )
         {
             _propsObj['transform'] = getTransformProperty(this.get(0));
-        }
+        };
         
         // We force the property mapping here because jQuery.attr() does
         // property mapping with jQuery.props when setting a CSS property,
@@ -92,7 +92,7 @@
                 if (typeof val == 'undefined' && jQuery.style)
                 {
                     return jQuery.style(this.get(0), arg);
-                }
+                };
             }
 
             // Call in form of css({'transform': ...})
@@ -104,8 +104,8 @@
             {
                 arg[_propsObj['transform']] = arg['transform'];
                 delete arg['transform'];
-            }
-        }
+            };
+        };
         
         return proxied.apply(this, arguments);
     };

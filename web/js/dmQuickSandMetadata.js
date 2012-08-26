@@ -38,7 +38,7 @@
                 return methods.init.apply( this, [method] );
             } else {
                 $.error( 'Method ' +  method + ' does not exist on jQuery.dmQuickSandMetadata' );
-            }  
+            };  
         });
     };
 

@@ -10,12 +10,22 @@ class dmQuickSandBehaviorForm extends dmBehaviorBaseForm {
         'fixed' => 'Fixed'
     );
 
+    protected $theme = array(
+        'default' => 'Default'
+    );
 
     public function configure() {
         
         $this->widgetSchema['inner_target'] = new sfWidgetFormInputText();
         $this->validatorSchema['inner_target'] = new sfValidatorString(array(
             'required' => false
+        ));
+        
+        $this->widgetSchema['theme'] = new sfWidgetFormChoice(array(
+            'choices' => $this->getI18n()->translateArray($this->theme)
+        ));
+        $this->validatorSchema['theme'] = new sfValidatorChoice(array(
+            'choices' => array_keys($this->theme)
         ));
         
         $this->widgetSchema['all_items_label'] = new sfWidgetFormInputText();
@@ -49,6 +59,7 @@ class dmQuickSandBehaviorForm extends dmBehaviorBaseForm {
             'adjustHeight' => 'Adjust height of container'
         ));
         
+        if (!$this->getDefault('theme')) $this->setDefault ('theme', 'default');
         if (!$this->getDefault('all_items_label')) $this->setDefault ('all_items_label', $this->__('Show all'));
         if (!$this->getDefault('easing')) $this->setDefault ('easing', 'easeInOutQuad');
         if (!$this->getDefault('duration')) $this->setDefault ('duration', 750);

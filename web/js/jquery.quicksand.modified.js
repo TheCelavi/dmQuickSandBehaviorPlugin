@@ -34,14 +34,14 @@ Github site: http://github.com/razorjack/quicksand
         if ($.browser.msie || (typeof($.fn.scale) == 'undefined')) {
             // Got IE and want scaling effect? Kiss my ass.
             options.useScaling = false;
-        }
+        };
         
         var callbackFunction;
         if (typeof(arguments[1]) == 'function') {
             var callbackFunction = arguments[1];
         } else if (typeof(arguments[2] == 'function')) {
             var callbackFunction = arguments[2];
-        }
+        };
     
         
         return this.each(function (i) {
@@ -63,7 +63,7 @@ Github site: http://github.com/razorjack/quicksand
             if ($.browser.msie && $.browser.version.substr(0,1)<7) {
                 $sourceParent.html('').append($collection);
                 return;
-            }
+            };
 
             // Gets called when any animation is finished
             var postCallbackPerformed = 0; // prevents the function from being called more than one time
@@ -81,12 +81,12 @@ Github site: http://github.com/razorjack/quicksand
                          
                     if (adjustHeightOnCallback) {
                         $sourceParent.css('height', destHeight);
-                    }
+                    };
                     options.enhancement($sourceParent); // Perform custom visual enhancements on a newly replaced collection
                     if (typeof callbackFunction == 'function') {
                         callbackFunction.call(this);
-                    }                    
-                }
+                    };                    
+                };
             };
             
             // Position: relative situations
@@ -98,21 +98,21 @@ Github site: http://github.com/razorjack/quicksand
                 } else {
                     correctionOffset.top += (parseFloat($correctionParent.css('border-top-width')) || 0);
                     correctionOffset.left +=( parseFloat($correctionParent.css('border-left-width')) || 0);
-                }
+                };
             } else {
                 correctionOffset.top -= (parseFloat($correctionParent.css('border-top-width')) || 0);
                 correctionOffset.left -= (parseFloat($correctionParent.css('border-left-width')) || 0);
                 correctionOffset.top -= (parseFloat($correctionParent.css('margin-top')) || 0);
                 correctionOffset.left -= (parseFloat($correctionParent.css('margin-left')) || 0);
-            }
+            };
             
             // perform custom corrections from options (use when Quicksand fails to detect proper correction)
             if (isNaN(correctionOffset.left)) {
                 correctionOffset.left = 0;
-            }
+            };
             if (isNaN(correctionOffset.top)) {
                 correctionOffset.top = 0;
-            }
+            };
             
             correctionOffset.left -= options.dx;
             correctionOffset.top -= options.dy;
@@ -137,7 +137,7 @@ Github site: http://github.com/razorjack/quicksand
                 } else {
                     dx = options.dx;
                     dy = options.dy;                    
-                }
+                };
 
                 rawObj.style.position = 'absolute';
                 rawObj.style.margin = '0';
@@ -184,8 +184,8 @@ Github site: http://github.com/razorjack/quicksand
                 } else {
                     //  Adjust later, on callback
                     adjustHeightOnCallback = true;
-                }
-            }
+                };
+            };
                 
             // Now it's time to do shuffling animation
             // First of all, we need to identify same elements within source and destination collections    
@@ -198,11 +198,11 @@ Github site: http://github.com/razorjack/quicksand
                         if (options.attribute(this) == val) {
                             destElement = $(this);
                             return false;
-                        }
+                        };
                     });
                 } else {
                     destElement = $collection.filter('[' + options.attribute + '=' + $(this).attr(options.attribute) + ']');
-                }
+                };
                 if (destElement.length) {
                     // The item is both in source and destination collections
                     // It it's under different position, let's move it
@@ -227,7 +227,7 @@ Github site: http://github.com/razorjack/quicksand
                                                        }
                                             });
 
-                    }
+                    };
                 } else {
                     // The item from source collection is not present in destination collections
                     // Let's remove it
@@ -237,8 +237,8 @@ Github site: http://github.com/razorjack/quicksand
                     } else {
                         animationQueue.push({element: $(this), animation: {opacity: '0.0', 
                                          scale: '0.0'}});
-                    }
-                }
+                    };
+                };
             });
             
             $collection.each(function (i) {
@@ -252,19 +252,19 @@ Github site: http://github.com/razorjack/quicksand
                         if (options.attribute(this) == val) {
                             sourceElement = $(this);
                             return false;
-                        }
+                        };
                     });                 
 
                     $collection.each(function() {
                         if (options.attribute(this) == val) {
                             destElement = $(this);
                             return false;
-                        }
+                        };
                     });
                 } else {
                     sourceElement = $source.filter('[' + options.attribute + '=' + $(this).attr(options.attribute) + ']');
                     destElement = $collection.filter('[' + options.attribute + '=' + $(this).attr(options.attribute) + ']');
-                }
+                };
                 
                 var animationOptions;
                 if (sourceElement.length === 0) {
@@ -278,7 +278,7 @@ Github site: http://github.com/razorjack/quicksand
                             opacity: '1.0',
                             scale: '1.0'
                         };
-                    }
+                    };
                     // Let's create it
                     d = destElement.clone();
                     var rawDestElement = d.get(0);
@@ -294,14 +294,14 @@ Github site: http://github.com/razorjack/quicksand
                     
                     animationQueue.push({element: $(d), 
                                          animation: animationOptions});
-                }
+                };
             });
             
             $dest.remove();
             options.enhancement($sourceParent); // Perform custom visual enhancements during the animation
             for (i = 0; i < animationQueue.length; i++) {
                 animationQueue[i].element.animate(animationQueue[i].animation, options.duration, options.easing, postCallback);
-            }
+            };
         });
     };
 })(jQuery);

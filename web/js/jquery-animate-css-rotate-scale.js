@@ -17,11 +17,11 @@
                 if (m && m[1])
                 {
                     return m[1];
-                }
-            }
+                };
+            };
             
             return 0;
-        }
+        };
         
         var m = val.toString().match(/^(-?\d+(\.\d+)?)(.+)?$/);
         if (m)
@@ -29,16 +29,16 @@
             if (m[3])
             {
                 rotateUnits = m[3];
-            }
+            };
             
             $(this).css(
                 'transform',
                 style.replace(/none|rotate\([^)]*\)/, '') + 'rotate(' + m[1] + rotateUnits + ')'
             );
-        }
+        };
         
         return this;
-    }
+    };
     
     // Note that scale is unitless.
     $.fn.scale = function (val, duration, options)
@@ -53,11 +53,11 @@
                 if (m && m[1])
                 {
                     return m[1];
-                }
-            }
+                };
+            };
             
             return 1;
-        }
+        };
         
         $(this).css(
             'transform',
@@ -65,7 +65,7 @@
         );
         
         return this;
-    }
+    };
 
     // fx.cur() must be monkey patched because otherwise it would always
     // return 0 for current rotate and scale values
@@ -79,20 +79,20 @@
         else if (this.prop == 'scale')
         {
             return parseFloat($(this.elem).scale());
-        }
+        };
         
         return curProxied.apply(this, arguments);
-    }
+    };
     
     $.fx.step.rotate = function (fx)
     {
         $(fx.elem).rotate(fx.now + rotateUnits);
-    }
+    };
     
     $.fx.step.scale = function (fx)
     {
         $(fx.elem).scale(fx.now);
-    }
+    };
     
     /*
     
@@ -125,11 +125,11 @@
             if (m && m[5])
             {
                 rotateUnits = m[5];
-            }
+            };
             
             prop['rotate'] = m[1];
-        }
+        };
         
         return animateProxied.apply(this, arguments);
-    }
+    };
 })(jQuery);

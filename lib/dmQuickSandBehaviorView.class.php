@@ -5,8 +5,7 @@
 class dmQuickSandBehaviorView extends dmBehaviorBaseView {
     
     public function configure() {
-        
-        parent::configure();
+        $this->addRequiredVar(array('theme', 'easing', 'duration', 'useScaling', 'adjustHeight'));
     }
     
     public function filterBehaviorVars(array $vars = array()) {

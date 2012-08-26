@@ -1,10 +1,10 @@
 js:
   dmQuickSandBehaviorPlugin:
-    transform:      jquery-css-transform
-    patch:          jquery-animate-css-rotate-scale
-    quickSand:      jquery.quicksand.modified
-    launchQuickSand: dmQuickSand
-    launchMetadata: dmQuickSandMetadata
+    transform:      jquery-css-transform.min
+    patch:          jquery-animate-css-rotate-scale.min
+    quickSand:      jquery.quicksand.modified.min
+    launchQuickSand: dmQuickSand.min
+    launchMetadata: dmQuickSandMetadata.min
 css:
   dmQuickSandBehaviorPlugin:
     themes: themes
